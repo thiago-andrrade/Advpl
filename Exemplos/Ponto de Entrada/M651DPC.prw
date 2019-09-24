@@ -19,9 +19,9 @@ Local lRet := .T.
 xcUsuario := Alltrim(cUSERNAME)
 
 If cEmpAnt == '01'
-  If !substr(xcUsuario,1,4) $ "PCP4/PCP5"
+	If !substr(xcUsuario,1,4) $ "PCP4/PCP5"
 		MSGStop("Usuario sem permissão para Firmar OP!")		
-    lRet   := .F. 
+		lRet   := .F. 
 	Endif
 Endif
 

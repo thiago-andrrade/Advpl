@@ -16,16 +16,14 @@ Bloqueio de Transf. Simples de PA no Armazem 08 e 09 	(MATA260)
 User Function MT260TOK
 
 Local lRet:= .T.
-
-If cFilant == "02"
-	If CLOCDEST $ "08/09"
-		If SB1->B1_TIPO == "PA"
-			msgstop ("Não é permitido realizar Transferência de PA no Armazém "+ CLOCDEST +"!") 
-			lRet  := .F.
+	If cFilant == "02"
+		If CLOCDEST $ "08/09"
+			If SB1->B1_TIPO == "PA"
+				msgstop ("Não é permitido realizar Transferência de PA no Armazém "+ CLOCDEST +"!") 
+				lRet  := .F.
+			Endif
 		Endif
 	Endif
-Endif
-
 Return lRet
 
 ---

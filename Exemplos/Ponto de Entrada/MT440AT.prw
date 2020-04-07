@@ -14,18 +14,16 @@ Regra para Impedir a Liberação do Pedido para Vendedor Desativado
 //=================================================================================
 
 User Function MT440AT()
+	Local _lRet	:= .T.
 
-Local _lRet	:= .T.
+	cTipo := Posicione("SA3",1,FwxFilial("SA3")+ALLTRIM(M->C5_VEND1),"A3_TIPO")
 
-cTipo := Posicione("SA3",1,FwxFilial("SA3")+ALLTRIM(M->C5_VEND1),"A3_TIPO")
-
-If cEmpAnt == "01"
-	If cTipo == "D"
-		MsgStop("Vendedor "+M->C5_VEND1+" Desativado! Ajuste o cadastro antes de prosseguir!")
-		_lRet	:= .F.
+	If cEmpAnt == "01"
+		If cTipo == "D"
+			MsgStop("Vendedor "+M->C5_VEND1+" Desativado! Ajuste o cadastro antes de prosseguir!")
+			_lRet	:= .F.
+		Endif
 	Endif
-Endif
-
 Return _lRet
 
 ---

@@ -12,12 +12,12 @@ Valida o duplo clique ao firmar OP
 /*/
 //=================================================================================
 User Function M651DPC()
-Local lRet := .T.
-xcUsuario := Alltrim(cUSERNAME)
-If cEmpAnt == '01'
-	If !substr(xcUsuario,1,4) $ "PCP4/PCP5"
-		MSGStop("Usuario sem permissão para Firmar OP!")		
-		lRet   := .F. 
+	Local lRet := .T.
+	xcUsuario := Alltrim(cUSERNAME)
+	If cEmpAnt == '01'
+		If !substr(xcUsuario,1,4) $ "PCP4/PCP5"
+			MSGStop("Usuario sem permissão para Firmar OP!")		
+			lRet   := .F. 
+		Endif
 	Endif
-Endif
 Return(lRet)

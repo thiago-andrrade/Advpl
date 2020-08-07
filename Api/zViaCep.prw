@@ -45,7 +45,7 @@ User Function zViaCep()
  
         FreeObj(oJsObj)
     Else
-        cCodMun := ''
+        ConOut("Erro Api ViaCep: "+oRestClient:GetLastError())
     Endif
  
     RestArea(aArea)

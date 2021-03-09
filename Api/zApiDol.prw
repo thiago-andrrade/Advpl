@@ -7,10 +7,10 @@
 Api | Cotação do Dolar Ptax, Api Oficial do Banco Central
 https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/documentacao
 
-@type		  function
-@author   Thiago.Andrrade
-@since		04/03/2021
-@version	1.0
+@type       function
+@author     Thiago.Andrrade
+@since      04/03/2021
+@version    1.0
 /*/
 //=================================================================================
 User function zApiDol()
@@ -45,8 +45,8 @@ Return
 /*/{Protheus.doc} zViewCot
 Exibe Cotação
 
-@author	    Thiago.Andrrade
-@since		  04/03/2021
+@author     Thiago.Andrrade
+@since      04/03/2021
 /*/
 //=================================================================================
 Static Function zViewCot(oJsObj)

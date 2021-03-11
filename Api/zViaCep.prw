@@ -1,7 +1,7 @@
 //=================================================================================
 /*/{Protheus.doc} zViaCep
 [API.VIACEP] [GET] Conecta na Api gratuita da ViaCep para retornar dados de um Endereço
-a partir do CEP.
+a partir do CEP. (Api CEP x Advpl)
 Documentação: https://viacep.com.br/
 Campos Disponiveis na API:  
 BAIRRO, CEP, COMPLEMENTO, GIA, IBGE, LOCALIDADE, LOGRADOURO, UF, UNIDADE

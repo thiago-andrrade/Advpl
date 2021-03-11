@@ -6,6 +6,7 @@
 /*/{Protheus.doc} zApiDol
 Api | Cotação do Dolar Ptax, Api Oficial do Banco Central
 https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/documentacao
+Api Dolar Ptax Banco Central x Advpl
 
 @type       function
 @author     Thiago.Andrrade

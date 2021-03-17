@@ -50,3 +50,6 @@ User Function zViaCep()
  
     RestArea(aArea)
 Return
+
+---
+@Thiago.Andrrade

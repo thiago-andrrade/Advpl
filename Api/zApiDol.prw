@@ -60,3 +60,7 @@ Static Function zViewCot(oJsObj)
 
     MsgInfo(cMsg,"Cotação Dolar Ptax")
 Return
+
+
+---
+@Thiago.Andrrade

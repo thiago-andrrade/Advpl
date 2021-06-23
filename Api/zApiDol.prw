@@ -11,13 +11,14 @@ Api Dolar Ptax Banco Central x Advpl
 @type       function
 @author     Thiago.Andrrade
 @since      04/03/2021
-@version    1.0
+@version    1.1
 /*/
 //=================================================================================
-User function zApiDol()
+User function zApiDol()   
     Local aHeader     := {}
     Local cDataPtx    := ''//MM-DD-AAAA
-    Local oJsObj
+    Local oJsObj      := JsonObject():New()
+    Local cJsonRt     := ''
     Local oRestClient := FWRest():New("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata")
 
     //Cabeçalho
@@ -31,32 +32,33 @@ User function zApiDol()
     //[GET] Consulta Dados na Api
     oRestClient:setPath("/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='"+cDataPtx+"'&$format=json")
     If oRestClient:Get(aHeader)
-        //Deserealiza o Json
-        FWJsonDeserialize(oRestClient:CRESULT,@oJsObj)
-        //Valida se a Cotação já está liberada para o dia
-        If Len(oJsObj:VALUE) > 0
-            zViewCot(oJsObj)
+        //Grava Retorno
+        cJsonRt := oJsObj:FromJson(oRestClient:CRESULT)
+        //Exibe Cotação
+        If ValType(cJsonRt) == 'U'
+            fViewCot(oJsObj)
         Endif
         //Limpa Objeto
         FreeObj(oJsObj)
     Endif
+    
 Return
 
 //=================================================================================
-/*/{Protheus.doc} zViewCot
+/*/{Protheus.doc} fViewCot
 Exibe Cotação
 
 @author     Thiago.Andrrade
 @since      04/03/2021
 /*/
 //=================================================================================
-Static Function zViewCot(oJsObj)
+Static Function fViewCot(oJsObj)
     Local cMsg := ''
 
-    cMsg += "<b>Data:</b> "+Dtoc(Stod(StrTran(SubStr(oJsObj:VALUE[1]:DATAHORACOTACAO,1,10),'-','')))
-    cMsg += " - "+SubStr(oJsObj:VALUE[1]:DATAHORACOTACAO,12,5)+"h<br>"
-    cMsg += "<b>Cotação de Compra:</b> "+cValToChar(oJsObj:VALUE[1]:COTACAOCOMPRA)+"<br>"
-    cMsg += "<b>Cotação de Venda:</b> "+cValToChar(oJsObj:VALUE[1]:COTACAOVENDA)+"<br>"
+    cMsg += "<b>Data:</b> "+Dtoc(Stod(StrTran(SubStr(oJsObj["value"][1]["dataHoraCotacao"],1,10),'-','')))
+    cMsg += " - "+SubStr(oJsObj["value"][1]["dataHoraCotacao"],12,5)+"h<br>"
+    cMsg += "<b>Cotação de Compra:</b> "+cValToChar(oJsObj["value"][1]["cotacaoCompra"])+"<br>"
+    cMsg += "<b>Cotação de Venda:</b> "+cValToChar(oJsObj["value"][1]["cotacaoVenda"])+"<br>"
 
     MsgInfo(cMsg,"Cotação Dolar Ptax")
 Return

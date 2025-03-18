@@ -13,11 +13,11 @@ Realiza a chamada da Transmissão + Monitoramento automática da NFE
 @author		Thiago.Andrrade
 @since		02/12/2024
 @version	12.1.2310
-@obs		    1 - O objetivo desta função é economizar licença, configurando os 2 jobs x Empresas
-            desta forma teremos 6 processamentos consumindo apenas 1 licença.
-            Este programa irá chamar as rotinas padrões (autoNfeTrans + autoNfeMon).
-            2 - Transmissão de ENTRADAS desativada dentro do p.e FISVALNFE
-@see        https://centraldeatendimento.totvs.com/hc/pt-br/articles/360029358971-Cross-Segmentos-Backoffice-Protheus-Doc-Eletr%C3%B4nicos-NF-e-AUTONFE-Transmiss%C3%A3o-Monitoramento-e-Cancelamento-Autom%C3%A1ticos
+@obs            1 - O objetivo desta função é economizar licença, configurando os 2 jobs x Empresas
+                desta forma teremos 6 processamentos consumindo apenas 1 licença.
+                Este programa irá chamar as rotinas padrões (autoNfeTrans + autoNfeMon).
+                2 - Transmissão de ENTRADAS desativada dentro do p.e FISVALNFE
+@see            https://centraldeatendimento.totvs.com/hc/pt-br/articles/360029358971-Cross-Segmentos-Backoffice-Protheus-Doc-Eletr%C3%B4nicos-NF-e-AUTONFE-Transmiss%C3%A3o-Monitoramento-e-Cancelamento-Autom%C3%A1ticos
 /*/
 //=================================================================================
  User Function zAutNfe()
